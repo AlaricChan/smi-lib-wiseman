@@ -71,6 +71,11 @@ javadoc {
     }
 }
 
+task snapshotJar(type: Jar){
+    baseName =  archivesBaseName
+    version = '1.0-SNAPSHOT'
+}
+
 task sourcesJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.allSource
@@ -152,7 +157,7 @@ uploadArchives {
 }
 
 artifacts {
-    archives javadocJar, sourcesJar
+    archives javadocJar, sourcesJar, snapshotJar
 }
 
 signing {
